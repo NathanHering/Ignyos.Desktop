@@ -1,8 +1,11 @@
 <!-- filepath: /d:/GitHub/NathanHering/Tauri Apps/Ignyos.Desktop/src/components/TitleBar.svelte -->
 <script lang="ts">
   import { invoke } from "@tauri-apps/api/core";
+  import feather from "feather-icons";
+  import { onMount } from "svelte";
 
   async function minimize() {
+    console.log("minimize");
     await invoke("minimize");
   }
 
@@ -13,14 +16,32 @@
   async function close() {
     await invoke("close");
   }
+
+  onMount(() => {
+    feather.replace({ "stroke-width": 0.75, height: 18, width: 18 });
+  });
 </script>
 
-<div class="titlebar flex justify-between items-center p-2 bg-gray-800 text-white">
-  <div class="title">Ignyos</div>
-  <div class="titlebar-buttons flex space-x-2">
-    <button class="titlebar-button p-1 bg-gray-700 rounded" on:click={minimize} aria-label="Minimize">_</button>
-    <button class="titlebar-button p-1 bg-gray-700 rounded" on:click={toggleMaximize} aria-label="Maximize">[]</button>
-    <button class="titlebar-button p-1 bg-gray-700 rounded" on:click={close} aria-label="Close">X</button>
+<div
+  class="titlebar flex justify-between items-center pl-2 bg-gray-800 text-white"
+>
+  <div>Ignyos</div>
+  <div class="titlebar-buttons flex space-x-0.5">
+    <button
+      class="titlebar-button p-2 hover:bg-gray-700"
+      on:click={minimize}
+      aria-label="Minimize"><span data-feather="minus"></span></button
+    >
+    <button
+      class="titlebar-button p-2 hover:bg-gray-700"
+      on:click={toggleMaximize}
+      aria-label="Maximize"><span data-feather="maximize"></span></button
+    >
+    <button
+      class="titlebar-button p-2 hover:bg-gray-700"
+      on:click={close}
+      aria-label="Close"><span data-feather="x"></span></button
+    >
   </div>
 </div>
 
