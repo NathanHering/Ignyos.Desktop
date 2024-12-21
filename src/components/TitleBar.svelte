@@ -18,7 +18,7 @@
   }
 
   onMount(() => {
-    feather.replace({ "stroke-width": 0.75, height: 18, width: 18 });
+    feather.replace({ "stroke-width": 0.75, height: 20, width: 20 });
   });
 </script>
 
@@ -38,7 +38,7 @@
       aria-label="Maximize"><span data-feather="maximize"></span></button
     >
     <button
-      class="titlebar-button p-2 hover:bg-gray-700"
+      class="titlebar-button p-2 hover:bg-red-900"
       on:click={close}
       aria-label="Close"><span data-feather="x"></span></button
     >
