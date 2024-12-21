@@ -1,15 +1,17 @@
 <!-- filepath: /d:/GitHub/NathanHering/Tauri Apps/Ignyos.Desktop/src/components/TitleBar.svelte -->
 <script lang="ts">
-  import { Window } from "@tauri-apps/api/window";
+  import { invoke } from "@tauri-apps/api/core";
 
-  function minimize() {}
-
-  function maximize() {
-    //Window.toggleMaximize();
+  async function minimize() {
+    await invoke("minimize");
   }
 
-  function close() {
-    //Window.close();
+  async function maximize() {
+    await invoke("toggle_maximize");
+  }
+
+  async function close() {
+    await invoke("close");
   }
 </script>
 
