@@ -6,7 +6,7 @@
     await invoke("minimize");
   }
 
-  async function maximize() {
+  async function toggleMaximize() {
     await invoke("toggle_maximize");
   }
 
@@ -16,11 +16,19 @@
 </script>
 
 <div class="titlebar">
-  <div class="title">My App</div>
+  <div class="title">Ignyos</div>
   <div class="titlebar-buttons">
-    <div class="titlebar-button" on:click={minimize}>_</div>
-    <div class="titlebar-button" on:click={maximize}>[]</div>
-    <div class="titlebar-button" on:click={close}>X</div>
+    <button class="titlebar-button" on:click={minimize} aria-label="Minimize"
+      >_</button
+    >
+    <button
+      class="titlebar-button"
+      on:click={toggleMaximize}
+      aria-label="Maximize">[]</button
+    >
+    <button class="titlebar-button" on:click={close} aria-label="Close"
+      >X</button
+    >
   </div>
 </div>
 
@@ -44,5 +52,13 @@
   .titlebar-button {
     cursor: pointer;
     padding: 0.5rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+  }
+
+  .titlebar-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
   }
 </style>
