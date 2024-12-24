@@ -1,11 +1,9 @@
-<!-- filepath: /d:/GitHub/NathanHering/Tauri Apps/Ignyos.Desktop/src/components/TitleBar.svelte -->
 <script lang="ts">
   import { invoke } from "@tauri-apps/api/core";
   import feather from "feather-icons";
   import { onMount } from "svelte";
 
   async function minimize() {
-    console.log("minimize");
     await invoke("minimize");
   }
 
@@ -25,7 +23,7 @@
 <div
   class="titlebar flex justify-between items-center pl-2 bg-gray-800 text-white"
 >
-  <div>Ignyos</div>
+  <div>Template Application</div>
   <div class="titlebar-buttons flex space-x-0.5">
     <button
       class="titlebar-button p-2 hover:bg-gray-700"
